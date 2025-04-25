@@ -4,3 +4,15 @@
 
 # ==================== READ ME ==================== #
 
+- name: Gather & Process Host Facts and Services
+  hosts: all
+  roles:
+    - gather_facts
+  tags:
+    - gather_facts
+  gather_facts: true
+
+- name: Set cluster to primaries
+  hosts: all
+  roles: 
+    - 

@@ -1,0 +1,5 @@
+# ========== Gather Data && Sort it ========== #
+
+  - name: Gather service facts
+    ansible.builtin.service_facts:
+
