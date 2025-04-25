@@ -1,0 +1,25 @@
+# ==================== READ ME ==================== #
+# check role names to ensure accuracy
+# check for excldued packages to make sure the names are right
+# ==================== READ ME ==================== #
+
+all:
+  vars:
+    serviceStopOrder:
+      - machine learning
+      - agent
+      - beat(s)
+      - frozen
+      - cold
+      - warm
+      - hot
+      - content 
+      - kibana
+      - coordinating
+      - transform
+      - master
+    
+    dnfExcludedPackages:
+      - elasticsearch
+      - beat
+      - agent

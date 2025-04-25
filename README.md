@@ -18,6 +18,7 @@ patch bare metal or VM-installed Elastic
 
 2. turn off services in prescribed order
 # Top == Stop First --> Bottom == Stop Last
+  - machine learning
   - agent
   - beat(s)
   - frozen
@@ -26,7 +27,6 @@ patch bare metal or VM-installed Elastic
   - hot
   - content 
   - kibana
-  - machine learning
   - coordinating
   - transform
   - master

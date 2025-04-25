@@ -1,0 +1,27 @@
+# ==================== READ ME ==================== #
+# Check for Available Updates && Skip if NO Updates
+# ==================== READ ME ==================== #
+
+
+- name: See what updates are available for installed packages
+  become: true
+  ansible.builtin.dnf:
+    list: updates
+  register: updatesAvailable
+
+- name: Extract list of packages that are Elastic related
+  set_fact:
+    elasticPackages: "{{ updatesAvailable.results | map(attribute='name') | list | difference(elasticPackages) | length == 0 }}"
+
+- name: Check if only 'Elastic' packages are in the update list
+  set_fact:
+    onlyElasticUpdates: "{{ updatesAvailable.results | map(attribute='name') | list | difference(elasticPackages) | length == 0 }}"
+          
+- name: Skip host if only 'Elastic' packages are in update list. OK == SKIP && Skipping == Updates Available
+  ansible.builtin.meta: end_host
+  when: onlyElasticUpdates
+  register: skippedHosts
+
+- name: Output names of skipped hosts
+  ansible.builtin.debug:
+    var: skippedHosts
