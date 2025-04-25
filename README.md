@@ -10,23 +10,10 @@ patch bare metal or VM-installed Elastic
   - logstash
   - machine learning # need to figure out the curl command to stop currently running ML jobs
   - kibana
+  - haproxy
   - content
   - hot
   - warm
   - cold
   - frozen
 
-2. turn off services in prescribed order
-# Top == Stop First --> Bottom == Stop Last
-  - machine learning
-  - agent
-  - beat(s)
-  - frozen
-  - cold
-  - warm
-  - hot
-  - content 
-  - kibana
-  - coordinating
-  - transform
-  - master

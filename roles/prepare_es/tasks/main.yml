@@ -1,0 +1,9 @@
+# ==================== READ ME ==================== #
+# Prepare ES for host patching
+# ==================== READ ME ==================== #
+
+# 1. check cluster health to see if it is green
+# 2. if green, stop all ML jobs
+# 3. set to primaries
+# 4. wait for cluster to go yellow
+# 5. notify patching may begin
